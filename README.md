@@ -1,6 +1,6 @@
 # 风里有回声个人博客
 
-这是 `850616.xyz` 的个人博客网站，适合部署到 Cloudflare Pages。
+这是 `one-way.top` 的个人博客网站，适合部署到 Cloudflare Pages。
 
 建议 GitHub 仓库名：`my-website`
 
@@ -28,7 +28,7 @@ http://localhost:8787
 4. 创建 Pages 项目，并连接 GitHub 仓库。
 5. 构建命令留空。
 6. 输出目录填写 `/`。
-7. 部署完成后，在 Custom domains 里绑定 `850616.xyz`。
+7. 部署完成后，在 Custom domains 里绑定 `one-way.top`。
 
 ## 后续可以继续完善
 

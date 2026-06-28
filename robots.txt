@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://850616.xyz/sitemap.xml
+Sitemap: https://one-way.top/sitemap.xml
