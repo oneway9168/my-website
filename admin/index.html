@@ -5,8 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>风里有回声 | 文章后台</title>
+    <link rel="stylesheet" href="/admin/admin.css" />
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <main class="admin-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/">风里有回声</a>
+        <nav>
+          <a class="active" href="#posts">文章</a>
+          <a href="/" target="_blank" rel="noreferrer">查看网站</a>
+        </nav>
+        <div class="account-box">
+          <span id="auth-status">未连接 GitHub</span>
+          <button id="logout-button" class="ghost-button" type="button" hidden>退出</button>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="toolbar">
+          <div>
+            <p class="eyebrow">个人博客后台</p>
+            <h1>文章管理</h1>
+          </div>
+          <div class="toolbar-actions">
+            <button id="new-post-button" type="button">新文章</button>
+            <button id="save-button" type="button">保存发布</button>
+          </div>
+        </header>
+
+        <section id="login-panel" class="login-panel">
+          <h2>连接 GitHub</h2>
+          <p>粘贴一个只用于这个仓库的 GitHub Token，后台会把文章保存到 `my-website` 仓库。</p>
+          <label>
+            GitHub Token
+            <input id="token-input" type="password" autocomplete="off" placeholder="github_pat_..." />
+          </label>
+          <button id="connect-button" type="button">连接后台</button>
+        </section>
+
+        <section id="editor-panel" class="editor-panel" hidden>
+          <div class="post-list-panel">
+            <div class="panel-title">
+              <h2>文章列表</h2>
+              <span id="post-count">0</span>
+            </div>
+            <div id="post-list" class="post-list"></div>
+          </div>
+
+          <form id="post-form" class="post-form">
+            <div class="field-grid">
+              <label>
+                标题
+                <input id="title-input" name="title" required />
+              </label>
+              <label>
+                发布日期
+                <input id="date-input" name="date" type="date" required />
+              </label>
+              <label>
+                文章标识
+                <input id="slug-input" name="slug" required />
+              </label>
+              <label>
+                分类
+                <select id="category-input" name="category">
+                  <option>生活观察</option>
+                  <option>数字工具</option>
+                  <option>建站记录</option>
+                  <option>长期思考</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              摘要
+              <textarea id="summary-input" name="summary" rows="3"></textarea>
+            </label>
+
+            <label>
+              正文
+              <textarea id="body-input" name="body" rows="16"></textarea>
+            </label>
+
+            <div class="switch-row">
+              <label><input id="featured-input" type="checkbox" /> 置顶</label>
+              <label><input id="published-input" type="checkbox" checked /> 发布</label>
+              <button id="delete-button" class="danger-button" type="button">删除文章</button>
+            </div>
+          </form>
+        </section>
+
+        <p id="message" class="message" role="status"></p>
+      </section>
+    </main>
+    <script src="/admin/admin.js"></script>
   </body>
 </html>

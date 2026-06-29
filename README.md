@@ -28,7 +28,7 @@ http://localhost:8787
 https://one-way.top/admin/
 ```
 
-现在后台使用 Decap CMS。文章会保存到：
+现在后台使用轻量文章管理页。文章会保存到：
 
 ```text
 content/posts.json
@@ -36,28 +36,9 @@ content/posts.json
 
 每篇文章在后台的“文章管理”列表里维护，字段包括文章标识、标题、发布日期、分类、摘要、是否置顶、是否发布和正文。
 
-第一次在线登录后台前，需要给 GitHub 仓库配置 Decap CMS 的 GitHub 登录授权。配置好之后，你就可以在 `/admin/` 里新增、编辑、删除文章；保存后会自动提交到 GitHub，Cloudflare Pages 会自动更新网站。
+第一次使用后台时，需要粘贴一个只给 `oneway9168/my-website` 仓库使用的 GitHub Token。连接后，你就可以在 `/admin/` 里新增、编辑、删除文章；保存后会自动提交到 GitHub，Cloudflare Pages 会自动更新网站。
 
 前台首页会自动读取站内的 `content/posts.json`，并显示在最新文章、分类和近期文章里。
-
-### GitHub 登录授权
-
-在 GitHub 创建 OAuth App：
-
-```text
-Application name: one-way.top CMS
-Homepage URL: https://one-way.top
-Authorization callback URL: https://one-way.top/api/callback
-```
-
-创建后，把 GitHub 给出的两个值填到 Cloudflare Pages 的环境变量里：
-
-```text
-GITHUB_CLIENT_ID
-GITHUB_CLIENT_SECRET
-```
-
-保存变量后重新部署一次 Cloudflare Pages，后台登录才会真正生效。
 
 ## 部署到 Cloudflare Pages
 
@@ -72,7 +53,7 @@ GITHUB_CLIENT_SECRET
 ## 后续可以继续完善
 
 - 替换真实邮箱或联系方式
-- 配置 Decap CMS 的 GitHub 登录授权
+- 接入 GitHub OAuth 自动登录
 - 接入 Giscus、Waline 或 Twikoo 这类评论系统
 - 增加博客归档页
 - 增加 RSS
