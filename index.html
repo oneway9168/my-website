@@ -17,157 +17,134 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页">
-        <span class="brand-mark">F</span>
-        <span>风里有回声</span>
-      </a>
+    <header class="site-header" id="top">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="返回首页">
+          <span class="brand-mark">风</span>
+          <span class="brand-text">风里有回声</span>
+        </a>
+        <p class="tagline">one-way.top · 个人博客</p>
+      </div>
       <nav class="nav" aria-label="主导航">
-        <a href="#writing">文章</a>
-        <a href="#projects">项目</a>
-        <a href="#tools">工具</a>
+        <a href="#latest">首页</a>
+        <a href="#notes">文章</a>
+        <a href="#categories">分类</a>
         <a href="#about">关于</a>
+        <a href="#links">链接</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">one-way.top · Personal Blog</p>
-          <h1>风里有回声，文字有归处。</h1>
-          <p class="hero-text">
-            这里是「风里有回声」的个人博客，用来记录生活里的观察、数字工具的实践、
-            个人网站的折腾，以及那些值得慢慢想清楚的事。
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#writing">查看文章</a>
-            <a class="button secondary" href="#about">了解我</a>
-          </div>
-        </div>
-        <div class="hero-panel" aria-label="网站概览">
-          <div class="status-row">
-            <span>Domain</span>
-            <strong>one-way.top</strong>
-          </div>
-          <div class="status-row">
-            <span>Deploy</span>
-            <strong>Cloudflare Pages</strong>
-          </div>
-          <div class="status-row">
-            <span>Source</span>
-            <strong>my-website</strong>
-          </div>
-          <div class="mini-grid">
-            <span>Blog</span>
-            <span>Notes</span>
-            <span>Projects</span>
-            <span>Links</span>
-          </div>
-        </div>
+    <main class="site-shell">
+      <section class="intro">
+        <p class="eyebrow">Personal Blog</p>
+        <h1>写给时间，也写给路过的人。</h1>
+        <p>
+          这里是「风里有回声」的独立博客，放生活观察、数字工具、建站记录，
+          也放一些慢慢想清楚的事。
+        </p>
       </section>
 
-      <section id="writing" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Writing</p>
-          <h2>最新文章</h2>
-        </div>
-        <div class="article-list">
-          <article class="article-card">
-            <p class="article-date">2026-06-28</p>
-            <h3>为什么我想拥有一个自己的个人博客</h3>
-            <p>
-              平台适合分发，个人网站适合沉淀。把长期内容放在自己的域名下，
-              像是在互联网上留下一间可以慢慢布置的房间。
-            </p>
-            <a href="#">阅读全文</a>
+      <div class="content-layout">
+        <section class="post-feed" id="latest" aria-label="最新文章">
+          <article class="featured-post">
+            <div class="post-visual">
+              <span>Echo</span>
+            </div>
+            <div class="featured-copy">
+              <p class="post-meta">置顶 · 2026-06-29 · 建站记录</p>
+              <h2>为什么我想拥有一个自己的个人博客</h2>
+              <p>
+                平台适合分发，个人网站适合沉淀。把长期内容放在自己的域名下，
+                像是在互联网上留下一间可以慢慢布置的房间。
+              </p>
+              <a class="read-more" href="#">继续阅读</a>
+            </div>
           </article>
-          <article class="article-card">
-            <p class="article-date">2026-06-28</p>
+
+          <div class="section-title" id="notes">
+            <h2>最新文章</h2>
+            <span>Latest Posts</span>
+          </div>
+
+          <article class="post-card">
+            <p class="post-meta">2026-06-29 · 数字工具</p>
             <h3>用 Cloudflare Pages 和 GitHub 搭建博客</h3>
             <p>
               用 GitHub 保存网站代码，用 Cloudflare Pages 自动部署，再绑定自己的域名，
               就能低成本拥有一个稳定、带 HTTPS、方便长期维护的个人博客。
             </p>
-            <a href="#">阅读全文</a>
+            <a class="read-more" href="#">阅读全文</a>
           </article>
-          <article class="article-card">
-            <p class="article-date">2026-06-28</p>
+
+          <article class="post-card">
+            <p class="post-meta">2026-06-29 · 生活观察</p>
             <h3>我想在这里记录什么</h3>
             <p>
               这里会慢慢放下生活笔记、工具体验、建站记录、读书摘录和一些不急着给出答案的思考。
             </p>
-            <a href="#">阅读全文</a>
+            <a class="read-more" href="#">阅读全文</a>
           </article>
-        </div>
-      </section>
 
-      <section id="projects" class="section split-section">
-        <div>
-          <p class="eyebrow">Collections</p>
-          <h2>博客栏目</h2>
-          <p class="section-copy">
-            第一版先保留几个清晰栏目，后面可以继续拆成真正的文章页面、标签页和归档页。
-          </p>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <span class="project-tag">Life</span>
-            <h3>生活观察</h3>
-            <p>记录日常里的细节、变化、感受和那些一闪而过的念头。</p>
+          <article class="post-card">
+            <p class="post-meta">2026-06-29 · 长期思考</p>
+            <h3>给自己留一个不被算法打断的地方</h3>
+            <p>
+              首页不追热点，文章也不急着讨好任何推荐机制。这个网站更像一个稳定的入口，
+              让文字按照自己的节奏生长。
+            </p>
+            <a class="read-more" href="#">阅读全文</a>
           </article>
-          <article class="project-card">
-            <span class="project-tag">Tools</span>
-            <h3>数字工具</h3>
-            <p>整理域名、网站、软件、自动化、备份和效率工具的使用经验。</p>
-          </article>
-          <article class="project-card">
-            <span class="project-tag">Thinking</span>
-            <h3>长期思考</h3>
-            <p>把一些还没有完全想明白的问题，先诚实地记录下来。</p>
-          </article>
-        </div>
-      </section>
+        </section>
 
-      <section id="tools" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Links</p>
-          <h2>网站入口</h2>
-        </div>
-        <div class="link-grid">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            <strong>GitHub</strong>
-            <span>my-website 仓库</span>
-          </a>
-          <a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-            <strong>Cloudflare</strong>
-            <span>one-way.top 的 DNS 与 Pages</span>
-          </a>
-          <a href="#about">
-            <strong>Email</strong>
-            <span>后续填入你的公开邮箱</span>
-          </a>
-          <a href="#writing">
-            <strong>Archive</strong>
-            <span>后续扩展成博客归档</span>
-          </a>
-        </div>
-      </section>
+        <aside class="sidebar" aria-label="侧边栏">
+          <section class="widget profile-widget" id="about">
+            <div class="avatar">F</div>
+            <h2>风里有回声</h2>
+            <p>
+              一个用 one-way.top 记录生活、工具和长期思考的个人博客。
+            </p>
+          </section>
 
-      <section id="about" class="section about">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2>关于我</h2>
-        </div>
-        <p>
-          你好，我是风里有回声。这个网站会作为我的个人博客，用来记录生活、工具、
-          建站和一些长期思考。相比把所有内容都放在平台里，我更希望有一个属于自己的固定入口：
-          one-way.top。
-        </p>
-      </section>
+          <section class="widget" id="categories">
+            <h2>分类</h2>
+            <ul class="category-list">
+              <li><a href="#notes"><span>生活观察</span><strong>3</strong></a></li>
+              <li><a href="#notes"><span>数字工具</span><strong>2</strong></a></li>
+              <li><a href="#notes"><span>建站记录</span><strong>2</strong></a></li>
+              <li><a href="#notes"><span>长期思考</span><strong>1</strong></a></li>
+            </ul>
+          </section>
+
+          <section class="widget">
+            <h2>近期文章</h2>
+            <div class="mini-posts">
+              <a href="#">为什么我想拥有一个自己的个人博客</a>
+              <a href="#">用 Cloudflare Pages 和 GitHub 搭建博客</a>
+              <a href="#">给自己留一个不被算法打断的地方</a>
+            </div>
+          </section>
+
+          <section class="widget" id="links">
+            <h2>网站入口</h2>
+            <div class="link-list">
+              <a href="https://one-way.top" target="_blank" rel="noopener noreferrer">one-way.top</a>
+              <a href="https://github.com/oneway9168/my-website" target="_blank" rel="noopener noreferrer">
+                GitHub 仓库
+              </a>
+              <a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+                Cloudflare Pages
+              </a>
+            </div>
+          </section>
+        </aside>
+      </div>
     </main>
 
-    <footer class="footer">
-      <span>© <span id="year"></span> 风里有回声</span>
+    <footer class="site-footer">
+      <div>
+        <strong>风里有回声</strong>
+        <span>© <span id="year"></span> · one-way.top</span>
+      </div>
       <a href="#top">回到顶部</a>
     </footer>
 
