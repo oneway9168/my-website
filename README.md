@@ -31,14 +31,14 @@ https://one-way.top/admin/
 现在后台使用 Decap CMS。文章会保存到：
 
 ```text
-content/posts/
+content/posts.json
 ```
 
-每篇文章都是一个 Markdown 文件，字段包括标题、发布日期、分类、摘要、是否置顶、是否发布和正文。
+每篇文章在后台的“文章管理”列表里维护，字段包括文章标识、标题、发布日期、分类、摘要、是否置顶、是否发布和正文。
 
 第一次在线登录后台前，需要给 GitHub 仓库配置 Decap CMS 的 GitHub 登录授权。配置好之后，你就可以在 `/admin/` 里新增、编辑、删除文章；保存后会自动提交到 GitHub，Cloudflare Pages 会自动更新网站。
 
-前台首页会自动读取 GitHub 仓库里的 `content/posts` 文章，并显示在最新文章、分类和近期文章里。
+前台首页会自动读取站内的 `content/posts.json`，并显示在最新文章、分类和近期文章里。
 
 ## 部署到 Cloudflare Pages
 

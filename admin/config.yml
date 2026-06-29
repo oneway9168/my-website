@@ -9,18 +9,23 @@ media_folder: "media/uploads"
 public_folder: "/media/uploads"
 
 collections:
-  - name: "posts"
-    label: "文章"
-    label_singular: "文章"
-    folder: "content/posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    summary: "{{title}} · {{date}}"
-    fields:
-      - { label: "标题", name: "title", widget: "string" }
-      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "分类", name: "category", widget: "select", options: ["生活观察", "数字工具", "建站记录", "长期思考"] }
-      - { label: "摘要", name: "summary", widget: "text" }
-      - { label: "是否置顶", name: "featured", widget: "boolean", default: false, required: false }
-      - { label: "是否发布", name: "published", widget: "boolean", default: true, required: false }
-      - { label: "正文", name: "body", widget: "markdown" }
+  - name: "site_content"
+    label: "网站内容"
+    files:
+      - name: "posts"
+        label: "文章管理"
+        file: "content/posts.json"
+        fields:
+          - label: "文章列表"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}} · {{fields.date}}"
+            fields:
+              - { label: "文章标识", name: "slug", widget: "string", hint: "用英文、数字和短横线，例如 my-first-post" }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "分类", name: "category", widget: "select", options: ["生活观察", "数字工具", "建站记录", "长期思考"] }
+              - { label: "摘要", name: "summary", widget: "text" }
+              - { label: "是否置顶", name: "featured", widget: "boolean", default: false, required: false }
+              - { label: "是否发布", name: "published", widget: "boolean", default: true, required: false }
+              - { label: "正文", name: "body", widget: "markdown" }

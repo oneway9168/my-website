@@ -1,6 +1,4 @@
-const REPO_OWNER = "oneway9168";
-const REPO_NAME = "my-website";
-const POSTS_PATH = "content/posts";
+const POSTS_JSON_PATH = "/content/posts.json";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -41,17 +39,13 @@ window.addEventListener("hashchange", renderRoute);
 
 async function loadPosts() {
   try {
-    const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_PATH}`;
-    const response = await fetch(apiUrl, { headers: { Accept: "application/vnd.github.v3+json" } });
+    const response = await fetch(POSTS_JSON_PATH, { cache: "no-store" });
     if (!response.ok) {
-      throw new Error("Cannot read posts from GitHub");
+      throw new Error("Cannot read posts");
     }
 
-    const files = await response.json();
-    const markdownFiles = files.filter((file) => file.name.endsWith(".md"));
-    const loadedPosts = await Promise.all(markdownFiles.map(loadPostFile));
-
-    posts = loadedPosts
+    const data = await response.json();
+    posts = (data.posts || [])
       .filter((post) => post.published !== false)
       .sort((a, b) => new Date(b.date) - new Date(a.date));
   } catch (error) {
@@ -60,45 +54,6 @@ async function loadPosts() {
 
   renderPosts();
   renderRoute();
-}
-
-async function loadPostFile(file) {
-  const response = await fetch(file.download_url);
-  if (!response.ok) {
-    throw new Error(`Cannot load ${file.name}`);
-  }
-
-  const markdown = await response.text();
-  return parseMarkdown(markdown, file.name.replace(/\.md$/, ""));
-}
-
-function parseMarkdown(markdown, slug) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  const frontmatter = match ? match[1] : "";
-  const body = match ? match[2].trim() : markdown.trim();
-  const data = {};
-
-  frontmatter.split("\n").forEach((line) => {
-    const separator = line.indexOf(":");
-    if (separator === -1) return;
-    const key = line.slice(0, separator).trim();
-    let value = line.slice(separator + 1).trim();
-    value = value.replace(/^["']|["']$/g, "");
-    if (value === "true") value = true;
-    if (value === "false") value = false;
-    data[key] = value;
-  });
-
-  return {
-    slug,
-    title: data.title || "未命名文章",
-    date: data.date || "",
-    category: data.category || "文章",
-    summary: data.summary || body.slice(0, 90),
-    featured: data.featured === true,
-    published: data.published !== false,
-    body,
-  };
 }
 
 function renderPosts() {
