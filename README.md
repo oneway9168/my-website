@@ -40,6 +40,25 @@ content/posts.json
 
 前台首页会自动读取站内的 `content/posts.json`，并显示在最新文章、分类和近期文章里。
 
+### GitHub 登录授权
+
+在 GitHub 创建 OAuth App：
+
+```text
+Application name: one-way.top CMS
+Homepage URL: https://one-way.top
+Authorization callback URL: https://one-way.top/api/callback
+```
+
+创建后，把 GitHub 给出的两个值填到 Cloudflare Pages 的环境变量里：
+
+```text
+GITHUB_CLIENT_ID
+GITHUB_CLIENT_SECRET
+```
+
+保存变量后重新部署一次 Cloudflare Pages，后台登录才会真正生效。
+
 ## 部署到 Cloudflare Pages
 
 1. 把这个文件夹里的文件上传到 GitHub 仓库 `my-website`。
