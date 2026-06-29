@@ -31,6 +31,7 @@
         <a href="#categories">分类</a>
         <a href="#about">关于</a>
         <a href="#links">链接</a>
+        <a href="/admin/">后台</a>
       </nav>
     </header>
 
@@ -46,7 +47,7 @@
 
       <div class="content-layout">
         <section class="post-feed" id="latest" aria-label="最新文章">
-          <article class="featured-post">
+          <article class="featured-post" id="featured-post">
             <div class="post-visual">
               <span>Echo</span>
             </div>
@@ -66,34 +67,38 @@
             <span>Latest Posts</span>
           </div>
 
-          <article class="post-card">
-            <p class="post-meta">2026-06-29 · 数字工具</p>
-            <h3>用 Cloudflare Pages 和 GitHub 搭建博客</h3>
-            <p>
-              用 GitHub 保存网站代码，用 Cloudflare Pages 自动部署，再绑定自己的域名，
-              就能低成本拥有一个稳定、带 HTTPS、方便长期维护的个人博客。
-            </p>
-            <a class="read-more" href="#">阅读全文</a>
-          </article>
+          <div class="post-list" id="post-list">
+            <article class="post-card">
+              <p class="post-meta">2026-06-29 · 数字工具</p>
+              <h3>用 Cloudflare Pages 和 GitHub 搭建博客</h3>
+              <p>
+                用 GitHub 保存网站代码，用 Cloudflare Pages 自动部署，再绑定自己的域名，
+                就能低成本拥有一个稳定、带 HTTPS、方便长期维护的个人博客。
+              </p>
+              <a class="read-more" href="#">阅读全文</a>
+            </article>
 
-          <article class="post-card">
-            <p class="post-meta">2026-06-29 · 生活观察</p>
-            <h3>我想在这里记录什么</h3>
-            <p>
-              这里会慢慢放下生活笔记、工具体验、建站记录、读书摘录和一些不急着给出答案的思考。
-            </p>
-            <a class="read-more" href="#">阅读全文</a>
-          </article>
+            <article class="post-card">
+              <p class="post-meta">2026-06-29 · 生活观察</p>
+              <h3>我想在这里记录什么</h3>
+              <p>
+                这里会慢慢放下生活笔记、工具体验、建站记录、读书摘录和一些不急着给出答案的思考。
+              </p>
+              <a class="read-more" href="#">阅读全文</a>
+            </article>
 
-          <article class="post-card">
-            <p class="post-meta">2026-06-29 · 长期思考</p>
-            <h3>给自己留一个不被算法打断的地方</h3>
-            <p>
-              首页不追热点，文章也不急着讨好任何推荐机制。这个网站更像一个稳定的入口，
-              让文字按照自己的节奏生长。
-            </p>
-            <a class="read-more" href="#">阅读全文</a>
-          </article>
+            <article class="post-card">
+              <p class="post-meta">2026-06-29 · 长期思考</p>
+              <h3>给自己留一个不被算法打断的地方</h3>
+              <p>
+                首页不追热点，文章也不急着讨好任何推荐机制。这个网站更像一个稳定的入口，
+                让文字按照自己的节奏生长。
+              </p>
+              <a class="read-more" href="#">阅读全文</a>
+            </article>
+          </div>
+
+          <article class="article-view" id="article-view" hidden></article>
         </section>
 
         <aside class="sidebar" aria-label="侧边栏">
@@ -107,7 +112,7 @@
 
           <section class="widget" id="categories">
             <h2>分类</h2>
-            <ul class="category-list">
+            <ul class="category-list" id="category-list">
               <li><a href="#notes"><span>生活观察</span><strong>3</strong></a></li>
               <li><a href="#notes"><span>数字工具</span><strong>2</strong></a></li>
               <li><a href="#notes"><span>建站记录</span><strong>2</strong></a></li>
@@ -117,7 +122,7 @@
 
           <section class="widget">
             <h2>近期文章</h2>
-            <div class="mini-posts">
+            <div class="mini-posts" id="recent-posts">
               <a href="#">为什么我想拥有一个自己的个人博客</a>
               <a href="#">用 Cloudflare Pages 和 GitHub 搭建博客</a>
               <a href="#">给自己留一个不被算法打断的地方</a>
@@ -134,6 +139,7 @@
               <a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">
                 Cloudflare Pages
               </a>
+              <a href="/admin/">文章后台</a>
             </div>
           </section>
         </aside>
